@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F85D1BA71E89421700D29E1D /* MinCost.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8915B881E8514B100842272 /* MinCost.swift */; };
 		F885D6DB1E73D74200E19735 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F885D6DA1E73D74200E19735 /* AppDelegate.swift */; };
 		F885D6E01E73D74200E19735 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F885D6DE1E73D74200E19735 /* Main.storyboard */; };
 		F885D6E31E73D74200E19735 /* Matrix.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F885D6E11E73D74200E19735 /* Matrix.xcdatamodeld */; };
@@ -16,9 +17,8 @@
 		F885D7061E74165700E19735 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F885D7051E74165700E19735 /* UITextFieldExtension.swift */; };
 		F885D7091E74198D00E19735 /* UICollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F885D7081E74198D00E19735 /* UICollectionViewExtension.swift */; };
 		F885D71C1E7485C600E19735 /* MatrixGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F885D71B1E7485C600E19735 /* MatrixGridViewController.swift */; };
-		F885D7211E74890E00E19735 /* MatrixGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = F885D7201E74890E00E19735 /* MatrixGrid.swift */; };
 		F885D72C1E7495B600E19735 /* MatrixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F885D72B1E7495B600E19735 /* MatrixTests.swift */; };
-		F885D7331E7495E300E19735 /* MatrixGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = F885D7201E74890E00E19735 /* MatrixGrid.swift */; };
+		F8915B891E8514B100842272 /* MinCost.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8915B881E8514B100842272 /* MinCost.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,10 +43,10 @@
 		F885D7051E74165700E19735 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		F885D7081E74198D00E19735 /* UICollectionViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtension.swift; sourceTree = "<group>"; };
 		F885D71B1E7485C600E19735 /* MatrixGridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatrixGridViewController.swift; sourceTree = "<group>"; };
-		F885D7201E74890E00E19735 /* MatrixGrid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatrixGrid.swift; sourceTree = "<group>"; };
 		F885D7291E7495B600E19735 /* MatrixTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MatrixTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F885D72B1E7495B600E19735 /* MatrixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixTests.swift; sourceTree = "<group>"; };
 		F885D72D1E7495B600E19735 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8915B881E8514B100842272 /* MinCost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinCost.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,7 +130,7 @@
 		F885D71D1E74889800E19735 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F885D7201E74890E00E19735 /* MatrixGrid.swift */,
+				F8915B881E8514B100842272 /* MinCost.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -254,7 +254,7 @@
 				F885D71C1E7485C600E19735 /* MatrixGridViewController.swift in Sources */,
 				F885D7091E74198D00E19735 /* UICollectionViewExtension.swift in Sources */,
 				F885D6DB1E73D74200E19735 /* AppDelegate.swift in Sources */,
-				F885D7211E74890E00E19735 /* MatrixGrid.swift in Sources */,
+				F8915B891E8514B100842272 /* MinCost.swift in Sources */,
 				F885D6E31E73D74200E19735 /* Matrix.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -263,7 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F885D7331E7495E300E19735 /* MatrixGrid.swift in Sources */,
+				F85D1BA71E89421700D29E1D /* MinCost.swift in Sources */,
 				F885D72C1E7495B600E19735 /* MatrixTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -464,6 +464,7 @@
 				F885D6EE1E73D74200E19735 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F885D7301E7495B600E19735 /* Build configuration list for PBXNativeTarget "MatrixTests" */ = {
 			isa = XCConfigurationList;
@@ -472,6 +473,7 @@
 				F885D7321E7495B600E19735 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -19,7 +19,7 @@ public class MatrixGridViewController: UIViewController,UIPickerViewDataSource, 
         
         @IBOutlet weak var matixCollectionView: UICollectionView!
     
-        var grid = matrixGrid()
+        var grid = MinCost()
 
         var pickOption = [Int]()
         
@@ -73,6 +73,11 @@ public class MatrixGridViewController: UIViewController,UIPickerViewDataSource, 
                     textField.addToolbar(title: "Select Row")
                 }
             }
+            else{
+                
+                textField.selectedTextRange = textField.textRange(from: textField.beginningOfDocument, to: textField.endOfDocument)
+
+            }
         }
         
         public func textFieldDidEndEditing(_ textField: UITextField) {
@@ -80,7 +85,7 @@ public class MatrixGridViewController: UIViewController,UIPickerViewDataSource, 
             if(textField == columnTextField || textField == rowTextField) {
                 activeTextField = nil
                 
-                grid.initaliseMatrix(arr: [String](),m: Int(rowTextField.text!)!, n: Int(columnTextField.text!)!)
+                grid.initaliseMatrix(arr: [Int](),m: Int(rowTextField.text!)!, n: Int(columnTextField.text!)!)
                 
                 matixCollectionView?.reloadData()
             }
@@ -89,10 +94,22 @@ public class MatrixGridViewController: UIViewController,UIPickerViewDataSource, 
                 let row = textField.tag / 1000;
                 let col = textField.tag % 1000;
                 print("row : \(row) :: col : \(col)")
-                grid.cost?[row, col] = textField.text!
+                
+                if(textField.text == nil){
+                    textField.text = "0"
+                }
+                else if (textField.text?.characters.count == 0)
+                {
+                    textField.text = "0"
+                }
+                
+                let value : Int = Int(textField.text!)!
+                
+                let node = grid.cost?[row, col]
+                node?.val = value
             }
         }
-        
+    
         public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
             
             if string == "" {
@@ -104,7 +121,21 @@ public class MatrixGridViewController: UIViewController,UIPickerViewDataSource, 
                 return false
             }else
             {
-                return true
+                // Create an `NSCharacterSet` set which includes everything *but* the digits
+                let inverseSet = NSCharacterSet(charactersIn:"0123456789").inverted
+                
+                // At every character in this "inverseSet" contained in the string,
+                // split the string up into components which exclude the characters
+                // in this inverse set
+                let components = string.components(separatedBy: inverseSet)
+                
+                // Rejoin these components
+                let filtered = components.joined(separator: "")  // use join("", components) if you are using Swift 1.2
+                
+                // If the original string is equal to the filtered string, i.e. if no
+                // inverse characters were present to be eliminated, the input is valid
+                // and the statement returns true; else it returns false
+                return string == filtered
             }
         }
         
@@ -125,7 +156,7 @@ public class MatrixGridViewController: UIViewController,UIPickerViewDataSource, 
         public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
             activeTextField?.text = String(pickOption[row])
         }
-        
+    
         // MARK: - UICollectionViewDelegate protocol
         
         public func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -147,7 +178,16 @@ public class MatrixGridViewController: UIViewController,UIPickerViewDataSource, 
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! MatrixCollectionViewCell
             
             // Use the outlet in our custom class to get a reference to the UILabel in the cell
-            cell.gridValueTF.text = grid.cost?[indexPath.section,indexPath.item]
+            
+            let node = grid.cost?[indexPath.section,indexPath.item]
+            
+            var value = 0;
+            
+            if(node != nil) {
+                value = (node?.val)!
+            }
+
+            cell.gridValueTF.text = String(value)
             cell.gridValueTF.textColor = UIColor.red
             cell.gridValueTF.delegate = self;
             cell.layer.borderColor = UIColor.black.cgColor
@@ -160,33 +200,22 @@ public class MatrixGridViewController: UIViewController,UIPickerViewDataSource, 
         
         @IBAction func actionOnSubmit(_ sender: Any)
         {
+           let result = grid.getShortestPath();
             
-            let output = grid.getShortestPath();
+           let alert = UIAlertController (title: "Output", message: "Total Cost : \(result.totalCost ) \n Path : \(result.sequence) ", preferredStyle:UIAlertControllerStyle.alert)
             
-            var message : String = ""
-           
-            if(output.sucess){
-                print(output.pathGirdWay);
-                print(output.totalCost);
-                print(output.sequence);
-                message = "Cost : \(output.totalCost)"
-            }
-            else{
-                print(output.errorMessage);
-                message = output.errorMessage;
-            }
+           let okAction = UIAlertAction (title: "Ok", style: .default, handler: nil)
             
-            let alert = UIAlertController(title: title,
-                                          message: message,
-                                          preferredStyle: UIAlertControllerStyle.alert)
-            
-            let cancelAction = UIAlertAction(title: "OK",
-                                             style: .cancel, handler: nil)
-            
-            alert.addAction(cancelAction)
+            alert.addAction(okAction)
             self.present(alert, animated: true, completion: nil)
         }
+    
+    
+    @IBAction func actionOnClear(_ sender: Any) {
         
+        grid.initaliseMatrix(arr: [Int](),m: Int(rowTextField.text!)!, n: Int(columnTextField.text!)!)
         
+        matixCollectionView?.reloadData()
+    }
 }
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -152,13 +152,22 @@
                                     <action selector="actionOnSubmit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BrI-De-B9L"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uWc-s9-1eg">
+                                <rect key="frame" x="202" y="28" width="36" height="30"/>
+                                <state key="normal" title="Clear"/>
+                                <connections>
+                                    <action selector="actionOnClear:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vNF-00-E9l"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="fQf-1C-nnK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="28" id="1P7-MP-aym"/>
+                            <constraint firstItem="uWc-s9-1eg" firstAttribute="centerY" secondItem="rBq-0j-6Xa" secondAttribute="centerY" id="CGs-IM-ZsF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rBq-0j-6Xa" secondAttribute="trailing" constant="13" id="PGZ-ze-R1A"/>
                             <constraint firstItem="fQf-1C-nnK" firstAttribute="top" secondItem="qjj-LY-Q11" secondAttribute="bottom" constant="80" id="U49-gY-POS"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fQf-1C-nnK" secondAttribute="bottom" constant="20" id="VVH-se-XSK"/>
+                            <constraint firstItem="rBq-0j-6Xa" firstAttribute="leading" secondItem="uWc-s9-1eg" secondAttribute="trailing" constant="8" id="Z7L-5J-TkG"/>
                             <constraint firstItem="MyY-Bt-Nc5" firstAttribute="top" secondItem="qjj-LY-Q11" secondAttribute="bottom" constant="39" id="fSH-Oi-owh"/>
                             <constraint firstItem="0K2-hC-OId" firstAttribute="leading" secondItem="qjj-LY-Q11" secondAttribute="leading" constant="-24" id="nlw-gI-r0q"/>
                             <constraint firstItem="rBq-0j-6Xa" firstAttribute="top" secondItem="0K2-hC-OId" secondAttribute="top" id="pAb-1E-CiE"/>
